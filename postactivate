@@ -1,0 +1,4 @@
+#!/bin/bash
+# This hook is sourced after every virtualenv is activated.
+
+export PS1="\[\033[0;37m\]`basename \"$VIRTUAL_ENV\"`\[\033[0;39m\] • \[\033[38;5;197m\]\w \[\033[38;5;25m\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
