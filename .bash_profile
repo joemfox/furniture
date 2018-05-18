@@ -8,6 +8,26 @@ fi
 
 alias gpom='git pull origin master'
 
+#
+# Usage: mycd <path>
+#
+#  Replacement for builtin 'cd', which keeps a separate bash-history
+#   for every directory.
+function mycd()
+{
+  history -w # write current history file
+  builtin cd "$@"  # do actual cd
+  local HISTDIR="$HOME/.bash_history.d$PWD" # use nested folders for history
+  if [ ! -d "$HISTDIR" ]; then # create folder if needed
+    mkdir -p "$HISTDIR"
+  fi
+  export HISTFILE="$HISTDIR/${USER}_bash_history.txt" # set new history file
+  history -c  # clear memory
+  history -r #read from current histfile
+}
+
+alias cd=mycd
+
 ram() {
     command git push origin master
 }
@@ -50,4 +70,11 @@ function iterm2_print_user_vars() {
 }
 
 export PATH="/usr/local/opt/mozjpeg/bin:$PATH"
-export PATH="/Users/jfox/Library/Python/2.7/bin:$PATH"
+export PATH="/Users/jfox/Library/Python/2.7/bin:$PATH"export PATH="/usr/local/opt/gdal2/bin:$PATH"
+export PATH="/usr/local/cuda/bin:$PATH"alias blender=/Applications/Blender/blender.app/Contents/MacOS/blender
+
+alias blender=/Applications/blender.app/Contents/MacOS/blender
+# Setting PATH for Python 3.6
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+export PATH
