@@ -60,7 +60,7 @@ jupyter-console==5.2.0
 jupyter-core==4.3.0
 leather==0.3.3
 livereload==2.5.1
-lxml==4.1.0
+lxml==4.6.2
 Markdown==2.6.9
 MarkupSafe==1.0
 matplotlib==2.0.2
