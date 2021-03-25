@@ -96,7 +96,7 @@ python-frontmatter==0.4.2
 python-slugify==1.2.4
 pytimeparse==1.1.7
 pytz==2017.2
-PyYAML==3.12
+PyYAML==5.4
 pyzmq==16.0.2
 qtconsole==4.3.1
 rcssmin==1.0.6
